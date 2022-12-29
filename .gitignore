@@ -2,3 +2,4 @@
 bundle.js
 bundle.web.js
 node_modules
+.DS_Store

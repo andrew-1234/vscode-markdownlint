@@ -59,8 +59,8 @@
 		"terser-webpack-plugin": "5.3.5",
 		"util": "0.12.4",
 		"vsce": "2.10.2",
-		"webpack": "5.74.0",
-		"webpack-cli": "4.10.0"
+		"webpack": "^5.74.0",
+		"webpack-cli": "^4.10.0"
 	},
 	"keywords": [
 		"markdown",
@@ -71,6 +71,7 @@
 	],
 	"activationEvents": [
 		"onLanguage:markdown",
+		"onLanguage:quarto",
 		"onCommand:markdownlint.fixAll",
 		"onCommand:markdownlint.lintWorkspace",
 		"onCommand:markdownlint.openConfigFile",
@@ -109,7 +110,7 @@
 			"commandPalette": [
 				{
 					"command": "markdownlint.fixAll",
-					"when": "editorLangId == markdown"
+					"when": "editorLangId =~ /^markdown$|^rmd$|^quarto$/"
 				},
 				{
 					"command": "markdownlint.lintWorkspace",

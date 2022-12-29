@@ -536,7 +536,7 @@ async function markdownlintWrapper (document) {
 // Returns if the document is Markdown
 function isMarkdownDocument (document) {
 	return (
-		(document.languageId === markdownLanguageId) &&
+		((document.languageId === markdownLanguageId) || (document.languageId === "quarto")) &&
 		schemeSupported.has(document.uri.scheme)
 	);
 }
@@ -999,7 +999,10 @@ function activate (context) {
 	);
 
 	// Register CodeActionsProvider
-	const documentSelector = {"language": markdownLanguageId};
+	const documentSelector = [
+		{"language": markdownLanguageId},
+		{"language": "quarto"}
+	];
 	const codeActionProvider = {
 		provideCodeActions
 	};
